@@ -20,6 +20,6 @@ def getEnvVar(var_name: str) -> str:
     """
     try:
         return os.environ[var_name]
-    except KeyError as e:
-        logger.error("Environment variable %s not found: %s - EXITING", var_name, e)
+    except KeyError as key_error:
+        logger.error("Environment variable %s not found: %s - EXITING", var_name, key_error)
         sys.exit(1)
