@@ -8,4 +8,8 @@ If you would like to contribute to the project, please navigate to the [Bot-O-Ca
 
 ## Running the bot standalone (Optional)
 
-You can run the bot standalone with the following dockerfile:
+You can run the bot standalone with the following options:
+
+### Dockerfile
+
+Using the below dockerfile

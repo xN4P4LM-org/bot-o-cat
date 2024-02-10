@@ -41,6 +41,9 @@ cloudflare.ini
 # ignore docker compose
 *compose*.yaml
 
+# ignore shell configs
+*.config
+
 ### OS generated files ###
 
 # mac files
