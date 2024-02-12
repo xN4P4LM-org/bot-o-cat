@@ -4,68 +4,16 @@ This file contains validation functions for database operations.
 
 import logging
 from pymongo import MongoClient
+
 logger = logging.getLogger("discord.db.validation")
 
-def stringValidation(operation: str) -> bool:
-    """
-    Validate the operation is alphanumeric.
-
-    Arguments:
-        operation: The operation to validate.
-
-    Returns:
-        bool: True if the operation is valid, False otherwise.
-    """
-
-    # validate the string is just alphanumeric
-    if not operation.isalnum():
-        logger.error("Value %s is not alphanumeric", operation)
-        return False
-
-    return True
-
-def numberValidation(operation: str) -> bool:
-    """
-    Validate the operation is a number.
-
-    Arguments:
-        operation: The operation to validate.
-
-    Returns:
-        bool: True if the operation is valid, False otherwise.
-    """
-
-    # validate the string is just alphanumeric
-    if not operation.isnumeric():
-        logger.error("Value %s is not a number", operation)
-        return False
-
-    return True
-
-def validateMultipleStrings(*args: str) -> bool:
-    """
-    Validate multiple strings.
-
-    Arguments:
-        db: The database connection.
-        *args: The strings to validate.
-
-    Returns:
-        bool: True if all strings are valid, False otherwise.
-    """
-
-    for arg in args:
-        if not stringValidation(arg):
-            return False
-
-    return True
 
 def validateInDatabase(
-        db: MongoClient,
-        db_command_loggeer: logging.Logger,
-        database_name: str | None = None,
-        collection_name: str | None = None
-        ) -> bool:
+    db: MongoClient,
+    db_command_loggeer: logging.Logger,
+    database_name: str | None = None,
+    collection_name: str | None = None,
+) -> bool:
     """
     Validate the collection exists in the database.
 

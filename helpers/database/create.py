@@ -1,19 +1,17 @@
 """
 This file contains the create operations for the mongoDB database.
 """
+
 import logging
 from pymongo import MongoClient
-from helpers.database.validation import stringValidation
 
 logger = logging.getLogger("discord.db.create")
 
-def createDatabase(db_connection: MongoClient ,database_name: str) -> bool:
+
+def createDatabase(db_connection: MongoClient, database_name: str) -> bool:
     """
     Create a database in the mongoDB.
     """
-    if not stringValidation(database_name):
-        logger.error("Invalid database name.")
-        return False
 
     # check if the database already exists
     if database_name in db_connection.list_database_names():
@@ -30,20 +28,17 @@ def createDatabase(db_connection: MongoClient ,database_name: str) -> bool:
 
     logger.error(
         "You shouldn't see this message, check that database %s was created successfully",
-        database_name)
+        database_name,
+    )
     return False
 
+
 def createCollection(
-        db_connection: MongoClient,
-        database_name: str,
-        collection_name: str) -> bool:
+    db_connection: MongoClient, database_name: str, collection_name: str
+) -> bool:
     """
     Create a collection in the mongoDB database.
     """
-
-    if not stringValidation(database_name) or not stringValidation(collection_name):
-        logger.error("Invalid database or collection name.")
-        return False
 
     # create the collection
     collection = db_connection[database_name].create_collection(collection_name)
@@ -55,21 +50,17 @@ def createCollection(
 
     logger.error(
         "You shouldn't see this message, check that collection %s was created successfully",
-        collection_name)
+        collection_name,
+    )
     return False
 
+
 def insertOneDocument(
-        db_connection: MongoClient,
-        database_name: str,
-        collection_name: str,
-        document: dict) -> bool:
+    db_connection: MongoClient, database_name: str, collection_name: str, document: dict
+) -> bool:
     """
     Create a document in the mongoDB collection.
     """
-
-    if not stringValidation(database_name) or not stringValidation(collection_name):
-        logger.error("Invalid database or collection name.")
-        return False
 
     # check if the collection exists
     if collection_name not in db_connection[database_name].list_collection_names():
@@ -85,21 +76,20 @@ def insertOneDocument(
         return True
 
     logger.error(
-        "You shouldn't see this message, check that the document was inserted successfully")
+        "You shouldn't see this message, check that the document was inserted successfully"
+    )
     return False
 
+
 def insertManyDocuments(
-        db_connection: MongoClient,
-        database_name: str,
-        collection_name: str,
-        documents: list) -> bool:
+    db_connection: MongoClient,
+    database_name: str,
+    collection_name: str,
+    documents: list,
+) -> bool:
     """
     Insert many documents in the mongoDB collection.
     """
-
-    if not stringValidation(database_name) or not stringValidation(collection_name):
-        logger.error("Invalid database or collection name.")
-        return False
 
     # check if the collection exists
     if collection_name not in db_connection[database_name].list_collection_names():
@@ -115,5 +105,6 @@ def insertManyDocuments(
         return True
 
     logger.error(
-        "You shouldn't see this message, check that the documents were inserted successfully")
+        "You shouldn't see this message, check that the documents were inserted successfully"
+    )
     return False
