@@ -34,7 +34,7 @@ async def setupBotEvents(bot: commands.Bot):
             logger.info(
                 "Invite URL: \
 %shttps://discord.com/api/oauth2/authorize?\
-client_id=%s&permissions=8&scope=bot%s",
+client_id=%s&permissions=70368744177655&scope=bot%s",
                 TerminalColors.GREEN_BOLD,
                 bot.user.id,
                 TerminalColors.RESET_COLOR,

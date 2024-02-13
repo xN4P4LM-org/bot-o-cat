@@ -1,0 +1,3 @@
+[submodule "example-cog"]
+	path = cogs/example-cog
+	url = git@github.com:xN4P4LM-org/example-cog.git

@@ -44,9 +44,6 @@ cloudflare.ini
 # ignore shell configs
 *.config
 
-# ignore sensitve shell scripts
-*.shs
-
 ### OS generated files ###
 
 # mac files
