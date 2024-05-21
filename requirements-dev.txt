@@ -30,7 +30,7 @@ pyrsistent==0.20.0
 pytest==8.0.0
 pytest-pylint==0.21.0
 python-dotenv==0.21.1
-requests==2.31.0
+requests==2.32.0
 setuptools==69.0.3
 six==1.16.0
 texttable==1.7.0
